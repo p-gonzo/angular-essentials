@@ -1,0 +1,8 @@
+<div>
+  <p>Hello, {{ name }}!</p>
+  <input type='text' (input)='handleUserInput($event)' [value]="name"/>
+  <!-- <input type='text' [(ngModel)]="name"/> -->
+  <p>I'm the User Component</p>
+  <h3 (click)='handleClick()'><strong>{{value}}</strong></h3>
+  <app-user-detail [detail]="userDetails"></app-user-detail>
+</div>
