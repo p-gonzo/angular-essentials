@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import axios from 'axios';
 
 const DEFAULT_VALUE = 'CLICK ME!';
@@ -8,7 +8,7 @@ const DEFAULT_VALUE = 'CLICK ME!';
   templateUrl: './user.component.html',
 })
 
-export class UserComponent {
+export class UserComponent implements OnInit {
 
   value = DEFAULT_VALUE;
   @Input() name;
@@ -19,6 +19,10 @@ export class UserComponent {
     status: 'Single',
     name: this.name
   };
+
+  ngOnInit() {
+    this.userDetails.name = this.name;
+  }
 
   handleClick() {
     this.getTrumpQuote();
@@ -36,6 +40,12 @@ export class UserComponent {
     // console.log(evt.target.value);
     // this.name = evt.target.value;
     this.nameChanged.emit(evt.target.value);
+    this.userDetails.name = evt.target.value;
+
+    if (evt.target.value === 'password') {
+      this.userDetails.name = 'Phil';
+      this.userDetails.age = 30;
+    }
   }
 
 }

@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { UserComponent } from './user.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
 
+import { CustomerDashboardModule } from './customer-dashboard/customer-dashboard.module'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -14,7 +16,8 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    CustomerDashboardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
